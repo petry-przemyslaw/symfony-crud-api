@@ -1,4 +1,4 @@
-welcome.index:
-  path: /
-  controller: App\Shared\Web\Controller\WelcomeController::index
-  methods: GET
+#welcome.index:
+#  path: /
+#  controller: App\Shared\Web\Controller\WelcomeController::index
+#  methods: GET

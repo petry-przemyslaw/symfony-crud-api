@@ -1,6 +1,10 @@
+version: '3.8'
+
 services:
   php:
-    build: .
+    build:
+      context: .
+    container_name: symfony_app
     ports:
       - "8000:8000"
     volumes:
@@ -8,10 +12,14 @@ services:
     environment:
       APP_ENV: dev
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    working_dir: /app
+    command: php -S 0.0.0.0:8000 -t public
 
   db:
     image: postgres:16
+    container_name: symfony_db
     environment:
       POSTGRES_DB: symfony
       POSTGRES_USER: symfony
@@ -20,6 +28,11 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U symfony"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   db_data:
