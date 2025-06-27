@@ -1,0 +1,7 @@
+shared:
+    resource: '../src/Shared/Config/routing.yaml'
+    prefix: /
+
+company:
+    resource: '../src/Company/Config/routing.yaml'
+    prefix: /company
