@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Company\Application\Factory;
 
 use App\Company\Application\Command\UpdateCompanyCommand;
+use App\Shared\Application\Factory\AbstractRequestFactory;
 use InvalidArgumentException;
 
 class UpdateCompanyCommandFactory extends AbstractRequestFactory

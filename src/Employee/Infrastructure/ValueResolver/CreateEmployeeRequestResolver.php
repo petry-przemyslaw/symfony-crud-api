@@ -2,33 +2,31 @@
 
 declare(strict_types=1);
 
-namespace App\Company\Infrastructure\ValueResolver;
+namespace App\Employee\Infrastructure\ValueResolver;
 
-use App\Company\Application\DTO\CreateCompanyRequest;
-use App\Company\Application\Factory\CreateCompanyRequestFactory;
+use App\Employee\Application\DTO\CreateEmployeeRequest;
+use App\Employee\Application\Factory\CreateEmployeeRequestFactory;
+use InvalidArgumentException;
+use JsonException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
-use JsonException;
-use InvalidArgumentException;
 
-use function json_decode;
-
-readonly class CreateCompanyRequestResolver implements ValueResolverInterface
+readonly class CreateEmployeeRequestResolver implements ValueResolverInterface
 {
-
-    public function __construct(private CreateCompanyRequestFactory $factory)
+    public function __construct(private CreateEmployeeRequestFactory $factory)
     {
     }
 
     public function resolve(Request $request, ArgumentMetadata $argument): iterable
     {
-        if ($argument->getType() !== CreateCompanyRequest::class) {
+        if ($argument->getType() !== CreateEmployeeRequest::class) {
             return [];
         }
 
         try {
             yield $this->factory->create(
+                (int)$request->get('companyId'),
                 json_decode(
                     $request->getContent(),
                     true,

@@ -3,10 +3,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Company\Domain\ValueObject;
 
-use PHPUnit\Framework\TestCase;
-use App\Company\Domain\ValueObject\Email;
+use App\Employee\Domain\ValueObject\Email;
 use InvalidArgumentException;
-
+use PHPUnit\Framework\TestCase;
 use function str_repeat;
 
 final class EmailTest extends TestCase

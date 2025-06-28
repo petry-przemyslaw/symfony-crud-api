@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Company\Application\Factory;
 
-use App\Company\Application\Dto\CreateCompanyRequest;
+use App\Company\Application\DTO\CreateCompanyRequest;
 use App\Company\Application\Factory\CreateCompanyRequestFactory;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;

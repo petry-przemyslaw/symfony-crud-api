@@ -6,6 +6,10 @@ company:
     resource: '../src/Company/Config/routing.yaml'
     prefix: /company
 
+employee:
+    resource: '../src/Employee/Config/routing.yaml'
+    prefix: /company
+
 nelmio_api_doc:
     resource: 'routes/nelmio_api_doc.yaml'
     prefix: /

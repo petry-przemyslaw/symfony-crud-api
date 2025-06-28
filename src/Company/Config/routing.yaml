@@ -1,59 +1,26 @@
 company.collect:
   path: /
-  controller: App\Company\Web\CompanyController::collect
+  controller: App\Company\Controller\CompanyController::collect
   methods: GET
 company.create:
   path: /
-  controller: App\Company\Web\CompanyController::create
+  controller: App\Company\Controller\CompanyController::create
   methods: POST
 company.update:
   path: /{companyId}
-  controller: App\Company\Web\CompanyController::update
+  controller: App\Company\Controller\CompanyController::update
   methods: PUT
   requirements:
     companyId: '\d+'
 company.delete:
   path: /{companyId}
-  controller: App\Company\Web\CompanyController::delete
+  controller: App\Company\Controller\CompanyController::delete
   methods: DELETE
   requirements:
     companyId: '\d+'
 company.get:
   path: /{companyId}
-  controller: App\Company\Web\CompanyController::get
+  controller: App\Company\Controller\CompanyController::get
   methods: GET
   requirements:
     companyId: '\d+'
-employee.create:
-  path: /{companyId}/employee
-  controller: App\Company\Web\EmployeeController::create
-  methods: POST
-  requirements:
-    companyId: '\d+'
-employee.collect:
-  path: /{companyId}/employee
-  controller: App\Company\Web\EmployeeController::collect
-  methods: GET
-  requirements:
-    companyId: '\d+'
-employee.update:
-  path: /{companyId}/employee/{employeeId}
-  controller: App\Company\Web\EmployeeController::update
-  methods: PUT
-  requirements:
-    companyId: '\d+'
-    employeeId: '\d+'
-employee.delete:
-  path: /{companyId}/employee/{employeeId}
-  controller: App\Company\Web\EmployeeController::delete
-  methods: DELETE
-  requirements:
-    companyId: '\d+'
-    employeeId: '\d+'
-employee.get:
-  path: /{companyId}/employee/{employeeId}
-  controller: App\Company\Web\EmployeeController::get
-  methods: GET
-  requirements:
-    companyId: '\d+'
-    employeeId: '\d+'

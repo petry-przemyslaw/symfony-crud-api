@@ -1,0 +1,33 @@
+employee.create:
+  path: /{companyId}/employee
+  controller: App\Employee\Controller\EmployeeController::create
+  methods: POST
+  requirements:
+    companyId: '\d+'
+employee.collect:
+  path: /{companyId}/employee
+  controller: App\Employee\Controller\EmployeeController::collect
+  methods: GET
+  requirements:
+    companyId: '\d+'
+employee.update:
+  path: /{companyId}/employee/{employeeId}
+  controller: App\Employee\Controller\EmployeeController::update
+  methods: PUT
+  requirements:
+    companyId: '\d+'
+    employeeId: '\d+'
+employee.delete:
+  path: /{companyId}/employee/{employeeId}
+  controller: App\Employee\Controller\EmployeeController::delete
+  methods: DELETE
+  requirements:
+    companyId: '\d+'
+    employeeId: '\d+'
+employee.get:
+  path: /{companyId}/employee/{employeeId}
+  controller: App\Employee\Controller\EmployeeController::get
+  methods: GET
+  requirements:
+    companyId: '\d+'
+    employeeId: '\d+'

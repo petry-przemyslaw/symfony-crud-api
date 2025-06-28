@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Company\Application\Service;
 
-use App\Company\Application\Dto\CreateCompanyRequest;
+use App\Company\Application\DTO\CreateCompanyRequest;
 use App\Company\Application\Service\CreateCompanyHandler;
 use App\Company\Domain\Exception\NipAlreadyExistsException;
 use App\Company\Domain\Repository\CompanyRepositoryInterface;

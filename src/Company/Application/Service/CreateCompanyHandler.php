@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Company\Application\Service;
 
-use App\Company\Application\Dto\CreateCompanyRequest;
-use App\Company\Application\Dto\CreateCompanyResponse;
+use App\Company\Application\DTO\CreateCompanyRequest;
+use App\Company\Application\DTO\CreateCompanyResponse;
 use App\Company\Domain\Entity\Company;
 use App\Company\Domain\Repository\CompanyRepositoryInterface;
 use App\Company\Domain\ValueObject\Address;

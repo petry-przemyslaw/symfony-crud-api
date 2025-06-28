@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Company\Application\Query;
 
-use App\Company\Application\Dto\CompanyRequestQuery;
+use App\Company\Application\DTO\CompanyRequestQuery;
 use App\Company\Domain\Exception\CompanyNotExistException;
 use App\Company\Domain\Repository\CompanyRepositoryInterface;
 use App\Company\Domain\Entity\CompanyView;

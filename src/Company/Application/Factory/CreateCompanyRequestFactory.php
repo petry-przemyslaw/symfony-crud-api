@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Company\Application\Factory;
 
-use App\Company\Application\Dto\CreateCompanyRequest;
+use App\Company\Application\DTO\CreateCompanyRequest;
+use App\Shared\Application\Factory\AbstractRequestFactory;
 use InvalidArgumentException;
 
 class CreateCompanyRequestFactory extends AbstractRequestFactory
