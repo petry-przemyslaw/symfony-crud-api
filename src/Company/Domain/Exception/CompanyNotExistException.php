@@ -9,5 +9,8 @@ use Exception;
 
 class CompanyNotExistException extends Exception implements NotFoundException
 {
-    protected $message = 'company not exist';
+    public function __construct()
+    {
+        parent::__construct('company not exist');
+    }
 }

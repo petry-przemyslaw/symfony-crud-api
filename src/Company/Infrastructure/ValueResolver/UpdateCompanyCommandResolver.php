@@ -18,6 +18,9 @@ readonly class UpdateCompanyCommandResolver implements ValueResolverInterface
     {
     }
 
+    /**
+     * @return iterable<UpdateCompanyCommand>
+     */
     public function resolve(Request $request, ArgumentMetadata $argument): iterable
     {
         if ($argument->getType() !== UpdateCompanyCommand::class) {

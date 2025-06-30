@@ -13,7 +13,8 @@ final class EmailTest extends TestCase
     public function testValidEmail(): void
     {
         new Email('test@example.com');
-        $this->assertTrue(true);
+        $this->assertInstanceOf(Email::class, new Email('test@example.com'));
+
     }
 
     public function testInvalidEmailFormat(): void

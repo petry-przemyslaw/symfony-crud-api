@@ -24,11 +24,12 @@ class EmployeeController extends ApiAbstractController
 {
     public function collect(GetAllEmployeeQuery $query, int $companyId): JsonResponse
     {
+        $companyIdValue = null;
         try {
             $companyIdValue = new CompanyId($companyId);
             return new JsonResponse($query->query($companyIdValue)->getAll());
         } catch (Exception $exception) {
-            return $this->handleException($exception, $companyIdValue ?? null);
+            return $this->handleException($exception, $companyIdValue);
         }
     }
 
@@ -43,11 +44,12 @@ class EmployeeController extends ApiAbstractController
 
     public function get(GetEmployeeQuery $query, int $companyId, int $employeeId): JsonResponse
     {
+        $request = null;
         try {
             $request = new EmployeeCompanyRequestQuery(new CompanyId($companyId), new EmployeeId($employeeId));
             return new JsonResponse($query->query($request));
         } catch (Exception $exception) {
-            return $this->handleException($exception, $request ?? null);
+            return $this->handleException($exception, $request);
         }
     }
 

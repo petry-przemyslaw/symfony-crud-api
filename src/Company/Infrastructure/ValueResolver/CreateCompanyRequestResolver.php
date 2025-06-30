@@ -21,6 +21,9 @@ readonly class CreateCompanyRequestResolver implements ValueResolverInterface
     {
     }
 
+    /**
+     * @return iterable<CreateCompanyRequest>
+     */
     public function resolve(Request $request, ArgumentMetadata $argument): iterable
     {
         if ($argument->getType() !== CreateCompanyRequest::class) {

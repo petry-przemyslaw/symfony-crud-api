@@ -8,5 +8,8 @@ use InvalidArgumentException;
 
 class PhoneNumberAlreadyExistsException extends InvalidArgumentException
 {
-    protected $message = 'phone number already exists';
+    public function __construct()
+    {
+        parent::__construct('phone number already exists');
+    }
 }

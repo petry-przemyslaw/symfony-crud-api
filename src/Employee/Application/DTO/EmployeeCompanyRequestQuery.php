@@ -14,6 +14,9 @@ readonly class EmployeeCompanyRequestQuery implements JsonSerializable
     {
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function jsonSerialize(): array
     {
         return [

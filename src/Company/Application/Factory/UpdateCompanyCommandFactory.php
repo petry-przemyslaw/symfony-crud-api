@@ -25,6 +25,14 @@ class UpdateCompanyCommandFactory extends AbstractRequestFactory
     ];
 
     /**
+     * @param array{
+     *     name: string,
+     *     nip: string,
+     *     address: string,
+     *     city: string,
+     *     postcode: string
+     * } $data
+     *
      * @throws InvalidArgumentException
      */
     public function create(int $id, array $data): UpdateCompanyCommand

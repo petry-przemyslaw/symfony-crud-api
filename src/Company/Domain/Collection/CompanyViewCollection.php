@@ -26,6 +26,9 @@ class CompanyViewCollection implements Countable
         return count($this->collection);
     }
 
+    /**
+     * @return CompanyView[]
+     */
     public function getAll(): array
     {
         return $this->collection;

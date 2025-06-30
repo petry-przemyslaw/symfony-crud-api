@@ -40,11 +40,13 @@ class CompanyController extends ApiAbstractController
 
     public function get(GetCompanyQuery $query, int $companyId): JsonResponse
     {
+        $request = null;
+
         try {
             $request = new CompanyRequestQuery(new CompanyId($companyId));
             return new JsonResponse($query->query($request));
         } catch (Exception $exception) {
-            return $this->handleException($exception, $request ?? null);
+            return $this->handleException($exception, $request);
         }
     }
 

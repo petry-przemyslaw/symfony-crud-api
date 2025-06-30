@@ -25,6 +25,9 @@ class EmployeeViewCollection implements Countable
         return count($this->collection);
     }
 
+    /**
+     * @return EmployeeView[]
+     */
     public function getAll(): array
     {
         return $this->collection;

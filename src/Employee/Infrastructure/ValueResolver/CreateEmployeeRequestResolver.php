@@ -18,6 +18,9 @@ readonly class CreateEmployeeRequestResolver implements ValueResolverInterface
     {
     }
 
+    /**
+     * @return iterable<CreateEmployeeRequest>
+     */
     public function resolve(Request $request, ArgumentMetadata $argument): iterable
     {
         if ($argument->getType() !== CreateEmployeeRequest::class) {

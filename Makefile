@@ -4,12 +4,18 @@
 help:
 	@echo ""
 	@echo "Dostępne komendy:"
+	@echo "  make up             - Uruchomienie środowiska Docker Compose w tle"
+	@echo "  make down           - Zatrzymanie i usunięcie środowiska Docker Compose"
 	@echo "  make install        - Instalacja zależności w kontenerze"
 	@echo "  make phpunit        - Uruchomienie testów PHPUnit"
 	@echo "  make phpstan        - Analiza kodu PHPStan"
-	@echo "  make coverage       - Generowanie pokrycia kodu (HTML)"
 	@echo ""
 
+up:
+	docker compose up -d
+
+down:
+	docker compose down
 # Instalacja zależności composer
 install:
 	docker exec -it symfony_app composer install
@@ -21,9 +27,4 @@ phpunit:
 # Analiza PHPStan
 phpstan:
 	docker exec -it symfony_app ./vendor/bin/phpstan analyse
-
-# Pokrycie kodu
-coverage:
-	docker exec -e XDEBUG_MODE=coverage -it symfony_app ./vendor/bin/phpunit --coverage-html var/coverage
-	@echo "🔍 Otwórz var/coverage/index.html w przeglądarce."
 

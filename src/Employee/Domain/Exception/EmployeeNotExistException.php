@@ -9,5 +9,9 @@ use Exception;
 
 class EmployeeNotExistException extends Exception implements NotFoundException
 {
-    protected $message = 'employee not exist';
+    public function __construct()
+    {
+        parent::__construct('employee not exist');
+    }
+
 }

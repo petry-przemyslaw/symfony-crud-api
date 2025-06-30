@@ -23,6 +23,13 @@ class UpdateEmployeeCommandFactory extends AbstractRequestFactory
     ];
 
     /**
+     * @param array{
+     *     first_name: string,
+     *     last_name: string,
+     *     email: string,
+     *     phone_number?: mixed
+     * } $data
+     *
      * @throws InvalidArgumentException
      */
     public function create(int $companyId, int $employeeId, array $data): UpdateEmployeeCommand

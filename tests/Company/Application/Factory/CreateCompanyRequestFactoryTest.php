@@ -49,6 +49,7 @@ class CreateCompanyRequestFactoryTest extends TestCase
             'postcode' => '12345'
         ];
 
+        /** @phpstan-ignore-next-line */
         $this->factory->create($data);
     }
 
@@ -64,6 +65,7 @@ class CreateCompanyRequestFactoryTest extends TestCase
             'postcode' => '12345'
         ];
 
+        /** @phpstan-ignore-next-line */
         $this->factory->create($data);
     }
 }

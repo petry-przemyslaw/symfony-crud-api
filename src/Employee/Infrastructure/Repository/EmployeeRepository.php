@@ -113,15 +113,17 @@ readonly class EmployeeRepository implements EmployeeRepositoryInterface
     private function create(Employee $employee): EmployeeId
     {
         try {
-            $this->connection->executeStatement('
-            INSERT INTO employees (first_name, last_name, email, phone_number, company_id) 
-            VALUES (:first_name, :last_name, :email, :phone_number, :company_id)', [
-                'company_id' => $employee->companyId->value,
-                'first_name' => $employee->firstName->value,
-                'last_name' => $employee->lastName->value,
-                'email' => $employee->email->value,
-                'phone_number' => $employee->phoneNumber?->value
-            ]);
+            $this->connection->executeStatement(
+                'INSERT INTO employees (first_name, last_name, email, phone_number, company_id) 
+            VALUES (:first_name, :last_name, :email, :phone_number, :company_id)',
+                [
+                    'company_id' => $employee->companyId->value,
+                    'first_name' => $employee->firstName->value,
+                    'last_name' => $employee->lastName->value,
+                    'email' => $employee->email->value,
+                    'phone_number' => $employee->phoneNumber?->value
+                ]
+            );
             return new EmployeeId((int)$this->connection->lastInsertId());
         } catch (Exception $exception) {
             $this->handleException($exception);
@@ -130,28 +132,27 @@ readonly class EmployeeRepository implements EmployeeRepositoryInterface
 
     /**
      * @throws CompanyNotExistException
-     * @throws EmailAlreadyExistsException
-     * @throws PhoneNumberAlreadyExistsException
      * @throws Exception
      */
     private function update(Employee $employee): EmployeeId
     {
         try {
-            $this->connection->executeStatement('
-                UPDATE employees SET 
+            $this->connection->executeStatement(
+                'UPDATE employees SET 
                 first_name = :first_name, 
                 last_name = :last_name,
                 email = :email,
                 phone_number = :phone_number
-                WHERE id = :id AND company_id = :company_id
-            ', [
-                'first_name' => $employee->firstName->value,
-                'last_name' => $employee->lastName->value,
-                'email' => $employee->email->value,
-                'phone_number' => $employee->phoneNumber?->value,
-                'id' => $employee->employeeId->value,
-                'company_id' => $employee->companyId->value
-            ]);
+             WHERE id = :id AND company_id = :company_id',
+                [
+                    'first_name' => $employee->firstName->value,
+                    'last_name' => $employee->lastName->value,
+                    'email' => $employee->email->value,
+                    'phone_number' => $employee->phoneNumber?->value,
+                    'id' => $employee->employeeId->value,
+                    'company_id' => $employee->companyId->value
+                ]
+            );
             return $employee->employeeId;
         } catch (Exception $exception) {
             $this->handleException($exception);
@@ -159,12 +160,12 @@ readonly class EmployeeRepository implements EmployeeRepositoryInterface
     }
 
     /**
+     * @param Exception $exception
+     * @return never
      * @throws CompanyNotExistException
-     * @throws EmailAlreadyExistsException
-     * @throws PhoneNumberAlreadyExistsException
      * @throws Exception
      */
-    private function handleException(Exception $exception): void
+    private function handleException(Exception $exception): never
     {
         if ($exception instanceof ForeignKeyConstraintViolationException) {
             throw new CompanyNotExistException;

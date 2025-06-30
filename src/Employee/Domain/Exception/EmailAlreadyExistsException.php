@@ -8,5 +8,8 @@ use InvalidArgumentException;
 
 class EmailAlreadyExistsException extends InvalidArgumentException
 {
-    protected $message = 'email already exists';
+    public function __construct()
+    {
+        parent::__construct('email already exists');
+    }
 }

@@ -10,6 +10,8 @@ use function sprintf;
 abstract class AbstractRequestFactory
 {
     /**
+     * @param string[] $fields
+     * @param array<string, mixed> $data
      * @throws InvalidArgumentException
      */
     protected function validRequiredTextData(array $fields, array $data): void

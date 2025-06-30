@@ -8,5 +8,8 @@ use InvalidArgumentException;
 
 class NipAlreadyExistsException extends InvalidArgumentException
 {
-    protected $message = 'nip already exists';
+    public function __construct()
+    {
+        parent::__construct('nip already exists');
+    }
 }

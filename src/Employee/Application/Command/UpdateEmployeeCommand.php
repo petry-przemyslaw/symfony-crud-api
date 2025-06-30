@@ -19,6 +19,9 @@ readonly class UpdateEmployeeCommand implements JsonSerializable
     ) {
     }
 
+    /**
+     * @return array<string, int|string>
+     */
     public function jsonSerialize(): array
     {
         return array_filter([

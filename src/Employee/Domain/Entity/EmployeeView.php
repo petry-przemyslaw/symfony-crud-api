@@ -24,7 +24,7 @@ readonly class EmployeeView implements JsonSerializable
     }
 
     /**
-     * @return array<string, string>
+     * @return array<string, int|string>
      */
     public function jsonSerialize(): array
     {
