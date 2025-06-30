@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Employee\Application\DTO;
 
 use JsonSerializable;
+
 use function array_filter;
 
 readonly class CreateEmployeeRequest implements JsonSerializable
@@ -19,16 +20,16 @@ readonly class CreateEmployeeRequest implements JsonSerializable
     }
 
     /**
-     * @return array<string, int|string>
+     * @return array<string, int|string|null>
      */
     public function jsonSerialize(): array
     {
         return array_filter([
-            'company_id' => $this->companyId,
-            'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
+            'companyId' => $this->companyId,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
             'email' => $this->email,
-            'phone_number' => $this->phoneNumber
+            'phoneNumber' => $this->phoneNumber
         ]);
     }
 }
