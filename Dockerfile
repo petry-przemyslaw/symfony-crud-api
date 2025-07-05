@@ -33,6 +33,8 @@ WORKDIR /app
 
 # Kopiowanie plików projektu
 COPY . .
+COPY php.ini /usr/local/etc/php/php.ini
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Instalacja zależności PHP
 RUN composer install
